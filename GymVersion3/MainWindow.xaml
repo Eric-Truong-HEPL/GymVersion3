@@ -1,0 +1,34 @@
+﻿<Window x:Class="GymVersion3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymVersion3"
+        mc:Ignorable="d"
+        Title="LoginUserInterface" Height="150" Width="300" MaxHeight="200" MinHeight="125" MaxWidth="400" MinWidth="250" Icon="/Tsumugi_Yuzu.png">
+    <Grid>
+        <Grid>
+            <Grid ShowGridLines="false">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Content="Connexion" Click="ConnexionButtion_Click"  FontSize="16" Grid.Row="4" Grid.Column="0"></Button>
+                <Button Content="Inscription" Click="EnregistrerButton_Click" FontSize="16" Grid.Row="4" Grid.Column="1"></Button>
+                <Button Content="Debug" Click="AfficherButton_Click" FontSize="16" Grid.Row="4" Grid.Column="2"></Button>
+                <Label Content="Login " FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"/>
+                <Label Content="Nom d'utilisateur" FontSize="10" Grid.Row="1" Grid.Column="0"></Label>
+                <Label Content="Mot de passe" FontSize="10" Grid.Row="2" Grid.Column="0"></Label>
+                <TextBox FontSize="16" Grid.Row="1" VerticalAlignment="Center" Margin="4,0,12,0" Grid.Column="1" Text="{Binding Utilisateur, Mode=TwoWay}"/>
+                <PasswordBox FontSize="16" PasswordChanged="PasswordBox_PasswordChanged" Grid.Row="2" VerticalAlignment="Center" Grid.Column="1" Margin="4,0,12,0"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

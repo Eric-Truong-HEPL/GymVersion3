@@ -13,6 +13,9 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
@@ -20,8 +23,42 @@
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
+
+                <!-- pour faire un datagrid 6x3 -->
+                <DataGrid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" />
+                        <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" />
+                        <DataGridTextColumn Header="Date de naissance" Binding="{Binding DateNaissance}" />
+                        <DataGridTemplateColumn Header="Photo">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding PhotoPath}" Width="50" Height="50"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Abonnement">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Abonnement.DateDebut}" Margin="2"/>
+                                        <TextBlock Text="{Binding Abonnement.DateFin}" Margin="2"/>
+                                        <TextBlock Text="{Binding Abonnement.Prix}" Margin="2"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <!-- Buttons in the bottom row -->
+                <Button Grid.Column="0" Grid.Row="3" Content="Ajouter client" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
+                <Button Grid.Column="1" Grid.Row="3" Content="Enlever Client" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
+                <Button Grid.Column="2" Grid.Row="3" Content="Consulter la liste (debug)" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
+                <Button Grid.Column="3" Grid.Row="3" Content="Modifier Client" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
+                <Button Grid.Column="4" Grid.Row="3" Content="Sauvegarder Json" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
+                <Button Grid.Column="5" Grid.Row="3" Content="Charger en Json" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
             </Grid>
         </Grid>
     </Grid>
-
 </Window>

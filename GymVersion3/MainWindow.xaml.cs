@@ -101,8 +101,8 @@ namespace GymVersion3
                             {
                                 MessageBox.Show("Connexion réussie !");
                                 // Instancie l'interface de gestion des clients
-                                //MenuGestionClient gestionClient = new MenuGestionClient();
-                                //gestionClient.Show();
+                                ApplicationManagementInterface applicationManagementInterface = new ApplicationManagementInterface();
+                                applicationManagementInterface.Show();
                                 this.Close();
                                 return;
                             }

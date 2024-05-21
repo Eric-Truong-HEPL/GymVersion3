@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BibliothequeClasse
 {
-    internal class AbonnementViewModel : INotifyPropertyChanged
+    public class AbonnementViewModel : INotifyPropertyChanged
     {
         private string _typeAbonnement;
         private int prix;

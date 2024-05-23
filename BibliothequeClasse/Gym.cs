@@ -44,6 +44,8 @@ namespace BibliothequeClasse
             OnPropertyChanged(nameof(Clients));
         }
 
+
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)

@@ -13,7 +13,6 @@ namespace BibliothequeClasse
     {
         private string _nom;
         private string _prenom;
-        private string _adresse;
         private DateTime _dateNaissance;
         private string _photoPath;
         private AbonnementViewModel _abonnement;
@@ -44,18 +43,6 @@ namespace BibliothequeClasse
             }
         }
 
-        public string Adresse
-        {
-            get { return _adresse; }
-            set
-            { 
-                if (_adresse != value)
-                {
-                    _adresse = value;
-                    OnPropertyChanged(nameof(Adresse));
-                }
-            }
-        }
 
         public DateTime DateNaissance
         {
@@ -101,20 +88,36 @@ namespace BibliothequeClasse
         {
             _nom = "";
             _prenom = "";
-            _adresse = "";
             _dateNaissance = DateTime.Now;
             _photoPath = "";
             _abonnement = new AbonnementViewModel();
         }
 
-        public ClientViewModel(string nom, string prenom, string adresse, DateTime dateNaissance, string photoPath, AbonnementViewModel abonnement)
+        public ClientViewModel(string nom, string prenom, DateTime dateNaissance, string photoPath, AbonnementViewModel abonnement)
         {
             _nom = nom;
             _prenom = prenom;
-            _adresse = adresse;
             _dateNaissance = dateNaissance;
             _photoPath = photoPath;
             _abonnement = abonnement;
+        }
+
+        public ClientViewModel Clone()
+        {
+            return new ClientViewModel// le return va renvoyer tout les truc a l'interieur de l'accolade
+            {
+                Nom = this.Nom,
+                Prenom = this.Prenom,
+                DateNaissance = this.DateNaissance,
+                PhotoPath = this.PhotoPath,
+                Abonnement = new AbonnementViewModel
+                {
+                    TypeAbonnement = this.Abonnement.TypeAbonnement,
+                    Prix = this.Abonnement.Prix,
+                    DateDebut = this.Abonnement.DateDebut,
+                    DateFin = this.Abonnement.DateFin
+                }
+            };
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

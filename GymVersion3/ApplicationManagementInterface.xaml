@@ -25,7 +25,8 @@
                 </Grid.RowDefinitions>
 
                 <!-- pour faire un datagrid 6x3 -->
-                <DataGrid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False">
+                <DataGrid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False"
+                          ItemsSource="{Binding Clients}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" />
                         <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" />
@@ -41,6 +42,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
+                                        <TextBlock Text="{Binding Abonnement.TypeAbonnement}" Margin="2"/>
                                         <TextBlock Text="{Binding Abonnement.DateDebut}" Margin="2"/>
                                         <TextBlock Text="{Binding Abonnement.DateFin}" Margin="2"/>
                                         <TextBlock Text="{Binding Abonnement.Prix}" Margin="2"/>
@@ -52,12 +54,13 @@
                 </DataGrid>
 
                 <!-- Buttons in the bottom row -->
-                <Button Grid.Column="0" Grid.Row="3" Content="Ajouter client" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
-                <Button Grid.Column="1" Grid.Row="3" Content="Enlever Client" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
-                <Button Grid.Column="2" Grid.Row="3" Content="Consulter la liste (debug)" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
-                <Button Grid.Column="3" Grid.Row="3" Content="Modifier Client" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
-                <Button Grid.Column="4" Grid.Row="3" Content="Sauvegarder Json" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
-                <Button Grid.Column="5" Grid.Row="3" Content="Charger en Json" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Button_Click"></Button>
+                
+                <Button Grid.Column="0" Grid.Row="3" Content="Ajouter client" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="InterfaceAjouterUser_Click"></Button>
+                <Button Grid.Column="1" Grid.Row="3" Content="Enlever Client" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Sup_Click"></Button>
+                <Button Grid.Column="2" Grid.Row="3" Content="Clear la liste" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Clear_Click"></Button>
+                <Button Grid.Column="3" Grid.Row="3" Content="Modifier Client" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="Modifier_Click"></Button>
+                <Button Grid.Column="4" Grid.Row="3" Content="Sauvegarder Json" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="EnregistrerJson"></Button>
+                <Button Grid.Column="5" Grid.Row="3" Content="Charger en Json" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50" Click="ChargerJson"></Button>
             </Grid>
         </Grid>
     </Grid>

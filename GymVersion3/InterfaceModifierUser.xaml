@@ -1,0 +1,57 @@
+﻿<Window x:Class="GymVersion3.InterfaceModifierUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymVersion3"
+        mc:Ignorable="d"
+        Title="InterfaceModifierUser" Height="450" Width="800">
+    <Grid>
+        <Grid ShowGridLines="false">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Content="Nom" FontSize="16" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Nom, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Label Content="Prénom" FontSize="16" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Prenom, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Label Content="Date de naissance" FontSize="16" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"/>
+            <DatePicker Grid.Row="2" Grid.Column="1" SelectedDate="{Binding DateNaissance, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Label Content="Chemin de la photo" FontSize="16" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding PhotoPath, UpdateSourceTrigger=PropertyChanged}" x:Name="PhotoPathTextBox"/>
+            <Button Content="Parcourir" Grid.Row="3" Grid.Column="2" Click="ModifierClientBouton" />
+
+            <Label Content="Date de début" FontSize="16" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"/>
+            <DatePicker Grid.Row="4" Grid.Column="1" SelectedDate="{Binding Abonnement.DateDebut, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Label Content="Date de fin" FontSize="16" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center"/>
+            <DatePicker Grid.Row="5" Grid.Column="1" SelectedDate="{Binding Abonnement.DateFin, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Label Content="Prix" FontSize="16" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Abonnement.Prix, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Label Content="Type d'abonnement" FontSize="16" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center"/>
+            <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Abonnement.TypeAbonnement, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Button Content="Modifier" Click="ModifierClientBouton" FontSize="16" Grid.Row="8" Grid.Column="1"></Button>
+        </Grid>
+    </Grid>
+</Window>
